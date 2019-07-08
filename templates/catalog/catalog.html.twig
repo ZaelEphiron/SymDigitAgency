@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Services{% endblock %}
+
+{% block body %}
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>{{ title }} ✅</h1>
+	
+	<ul>
+		<li><a href={{ path('designServices') }}><h2>Design</h2></a></li>
+		<li><a href={{ path('marketingServices') }}><h2>Marketing</h2></li></a>
+		<li><a href={{ path('developmentServices') }}><h2>Développement</h2></li></a>
+	</ul>
+</div>
+{% endblock %}
