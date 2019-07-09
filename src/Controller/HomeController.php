@@ -14,7 +14,8 @@ class HomeController extends AbstractController
     {
         return $this->render('home/home.html.twig', [
             'controller_name' => 'HomeController',
-            'title' => 'Bienvenue sur le site de notre agence digitale !',
+            'title' => 'Bienvenue sur le site Digitalink, notre agence digitale !',
+            'slogan' => 'Digitalink est le lien entre vous et vos clients',
             'descriptionMin' => 'Vous êtes sur le site de notre agence, ce site est essentiellement composer du catalogue de nos services, nos références, notre blog ainsi que un formulaire pour nous contacter et demander un devis.',
         ]);
     }
