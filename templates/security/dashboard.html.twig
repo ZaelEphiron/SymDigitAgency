@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+    
+    <section id="presentation">
+        <div class="jumbotron text-center">
+            <h1>Tableau de bord</h1>
+        </div>
+    </section>
+    
+
+    <section class="articles">
+      
+        <div class="jumbotron text-center">
+            <h2>Gestion des articles</h2>
+        </div>
+    
+        {% for article in articles %}
+            <article>
+                <div class="example-wrapper">
+                    <div class = "jumbotron">
+                        <h2 class="text-center">{{ article.title }}</h2>
+                        <div class="metadata text-center">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{article.category.title}}</div>
+                        <div class="content">   
+                            <img class="rounded mx-auto d-block w-25" src="{{ article.image }}" alt="">
+                                <br>
+                                {{ article.content | raw }}
+                                <br>
+                                <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="container text-center">
+                                        <button type="button" class="btn btn-info"><a href={{ path('blog_edit', {'id': article.id}) }}>Modifier l'article</a></button>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="container text-center">
+                                        <button type="button" class="btn btn-info"><a href={{ path('blog_edit', {'id': article.id}) }}>Supprimer l'article</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </article>
+        {% else %}
+            <div class="alert alert-dismissible alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4 class="alert-heading">Pas d'articles</h4>
+                <p class="mb-0">Vous pouvez en créer un</p>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section class="contacts">
+
+        <div class="jumbotron text-center">
+            <h2>Gestion des devis</h2>
+        </div>
+        {% for contact in contacts %}
+            <contact>
+                <div class="example-wrapper">
+                    <div class="jumbotron">
+                        <h2 class="text-center">{{ contact.firstname }} {{ contact.lastname }}</h2>
+                        <div class="metadata text-center">Reçu le {{ contact.dateOfReceipt | date('d/m/Y') }} à {{ contact.dateOfReceipt | date('H:i') }} avec pour objet {{contact.needs}}</div>
+                            <div class="content text-center">  
+                                {{ contact.message | raw }} 
+                            </div> 
+                            <p class="text-center">
+                                Coordonnées :<br />
+                                Email : {{ contact.email }}<br />
+                                Numéro de téléphone : {{ contact.phone }}<br />
+                                Société : {{ contact.society }}<br />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </contact>
+        {% endfor %}
+    </section>
+
+{% endblock %}

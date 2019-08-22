@@ -3,10 +3,91 @@
 {% block title %}Blog de l'agence{% endblock %}
 
 {% block body %}
+    <meta name="description" content="Chez Digitalink, nous avons de l'inspiration et des idées à partager. Voici notre blog avec un nouvel article chaque semaine."/>
+    
+    <style>
+		.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+		.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	</style>
+    
+    <section id="blog-presentation">
+        <div class="jumbotron bg-warning">
+            <h1 class="display-3 text-center">{{ title }}</h1>
+            <p class="lead text-center text-white">Cette rubrique contient tout nos articles.</p>
+            <hr class="my-4">
+            <h2 class="text-center">Voici la liste de nos articles :</h2>
+        </div>
+    </section>
 
-    <h1>{{ title }} ✅</h1>
-	<hr>
-	<h2>Liste des articles</h1>
-	<hr>
+	<section class="articles">
+        <div class="example-wrapper">
+            {% for article in articles %}
+            <article>
+                <div class = "jumbotron">
+                    <h2 class="text-center">{{ article.title }}</h2>
+                    <div class="metadata text-center">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{article.category.title}}</div>
+                    <div class="content">   
+                        <img class="rounded mx-auto d-block w-50" src="{{ article.image }}" alt="image de l'article">
+                        <br>
+                        {{ article.content | raw }}
+                    </div> 
+                </div>
+            </article>
+            {% else %}
+            <div class="alert alert-dismissible alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4 class="alert-heading">Pas d'articles</h4>
+                <p class="mb-0">Si vous êtes connecté en tant qu'administrateur alors vous pouvez en créer un.</p>
+            </div>
+            {% endfor %}
+            {% if app.user %}
+                <div class="container text-center">
+                    <button type="button" class="btn btn-info"><a class="text-white" href={{ path('blog_create') }}>Créer un article</a></button>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <section id="paginator">
+        
+        <div class="container text-center">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                <a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&laquo;</font></font></a>
+                </li>
+                <li class="page-item active">
+                <a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font></a>
+                </li>
+                <li class="page-item">
+                <a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2</font></font></a>
+                </li>
+                <li class="page-item">
+                <a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></a>
+                </li>
+                <li class="page-item">
+                <a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4</font></font></a>
+                </li>
+                <li class="page-item">
+                <a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5</font></font></a>
+                </li>
+                <li class="page-item">
+                <a class="page-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&raquo;</font></font></a>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="newsletter">
+
+        <div class="jumbotron text-center">
+            <p>Suivez la parution des prochains articles grâce à notre newsletter !</p>
+
+            <div class="container text-center">
+                    <button type="button" class="btn btn-info">Inscrivez-vous à la newsletter</button>
+            </div>
+        </div>
+    
+    </section>
 
 {% endblock %}

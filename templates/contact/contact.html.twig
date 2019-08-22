@@ -1,24 +1,80 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Formulaire de contact{% endblock %}
+{% form_theme formContact 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Contacter Digitalink, agence Digitale basée à Paris{% endblock %}
 
 {% block body %}
+	
+	<meta name="description" content="Nous sommes impatients de vous rencontrer pour vous accompagner dans vos projets digitaux."/>
 
-    <h1>{{ title }} ✅</h1>
+	<style>
+		.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+		.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	</style>
 
-	<form>
-		<fieldset>
-			<legend>Formulaire de contact</legend>
-			<div class="form-group">
-			<label for="exampleInputEmail1">Adresse e-mail :</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Votre adresse e-mail">
-			<small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre adresse e-mail avec les autres utilisateurs du site.</small>
+	<section id="contact-presentation">
+
+		<div class = "jumbotron bg-info">
+			<h1 class = "display-3 text-center"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;">Contactez-nous pour démarrer votre projet digital</font></font></h1>
+			<hr class = "my-4">
+			<p class="text-center"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;">Nous sommes 3 chefs de projets experts dans des domaines respectifs, et impatients de relever de nouveaux challenges.</font></font></p>
+		</div>
+
+	</section>
+
+	<div class="container text-center mt-3">
+		<div class="row">
+			<div class="col">
+				<div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+					<div class="card-header"><img src="https://image.flaticon.com/icons/svg/126/126341.svg" class="img-fluid" alt="Responsive image"></div>
+					<div class="card-body">
+						<h2 class="card-title">Par téléphone</h2>
+						<p class="card-text">Pour les plus entreprenants <br/>01.02.03.04.05</p>
+					</div>
+				</div>
 			</div>
-			<div class = "form-group">
-      			<label for = "exampleTextarea"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;">Message :</font></font></label>
-      			<textarea class = "form-control" id = "exampleTextarea" rows = "3"></textarea>
-   			</div>
-			<button type="submit" class="btn btn-primary">Envoyer</button>
-		</fieldset>
-	</form>
+			<div class="col">
+				<div class="card border-info mb-3" style="max-width: 20rem;">
+					<div class="card-header"><img src="https://image.flaticon.com/icons/svg/1034/1034146.svg" class="img-fluid" alt="Responsive image"></div>
+					<div class="card-body">
+						<h2 class="card-title">Par mail</h2>
+						<p class="card-text">Par souci de discrétion <br/>contact@digitalink.com</p>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+					<div class="card-header"><img src="https://image.flaticon.com/icons/svg/854/854878.svg" class="img-fluid" alt="Responsive image"></div>
+					<div class="card-body">
+						<h2 class="card-title">Adresse</h2>
+						<p class="card-text">Pour nos futurs échanges de courrier <br/>48 rue Fictive, </br>75001 Paris</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="example-wrapper">
+		<div class="jumbotron">
+			<h2 class = "text-center">Demander un devis</h2>
+			<hr>	
+
+			{{ form_start(formContact) }}
+				
+			{{ form_row(formContact.needs, {'label': "Votre besoin*", 'attr': {'placeholder': "Blog, Site ou E-commerce" } }) }}
+			{{ form_row(formContact.firstname, {'label': "Prénom*", 'attr': {'placeholder': "Votre prénom" } }) }}
+			{{ form_row(formContact.lastname, {'label': "Nom*", 'attr': {'placeholder': "Votre nom" } }) }} 
+			{{ form_row(formContact.society, {'label': "Société", 'attr': {'placeholder': "Votre société" } }) }}
+			{{ form_row(formContact.phone, {'label': "Numéro de téléphone", 'attr': {'placeholder': "Votre numéro de téléphone"} }) }}
+			{{ form_row(formContact.email, {'label': "E-mail",'attr': {'placeholder': "Votre adresse e-mail"} }) }}
+			{{ form_row(formContact.message, {'label': "Votre message",'attr': {'placeholder': "Message"} }) }}
+					
+			<button type="submit" class="btn btn-success container text-center">
+					Envoyer votre requête
+			</button>
+			{{ form_end(formContact)}}
+		</div>
+	</div>
+			
 {% endblock %}

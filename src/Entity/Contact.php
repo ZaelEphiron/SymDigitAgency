@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
@@ -18,56 +21,120 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2, max=100)
      */
-    private $firstName;
+    private $needs;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2, max=100)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2, max=100)
+     */
+    private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lastName;
+    private $society;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     * pattern="/[0-9]{10}/"
+     * )
      */
-    private $Email;
+    private $phone;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Email()
+     */
+    private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateOfReceipt;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getFirstName(): ?string
+    public function getNeeds(): ?string
     {
-        return $this->firstName;
+        return $this->needs;
     }
 
-    public function setFirstName(string $firstName): self
+    public function setNeeds(string $needs): self
     {
-        $this->firstName = $firstName;
+        $this->needs = $needs;
 
         return $this;
     }
 
-    public function getLastName(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->lastName;
+        return $this->firstname;
     }
 
-    public function setLastName(string $lastName): self
+    public function setFirstname(string $firstname): self
     {
-        $this->lastName = $lastName;
+        $this->firstName = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastName = $lastname;
+
+        return $this;
+    }
+
+    public function getSociety(): ?string
+    {
+        return $this->society;
+    }
+
+    public function setSociety(string $society): self
+    {
+        $this->society = $society;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }
 
     public function getEmail(): ?string
     {
-        return $this->Email;
+        return $this->email;
     }
 
     public function setEmail(string $Email): self
@@ -85,6 +152,18 @@ class Contact
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getDateOfReceipt(): ?\DateTimeInterface
+    {
+        return $this->dateOfReceipt;
+    }
+
+    public function setDateOfReceipt(\DateTimeInterface $dateOfReceipt): self
+    {
+        $this->dateOfReceipt = $dateOfReceipt;
 
         return $this;
     }

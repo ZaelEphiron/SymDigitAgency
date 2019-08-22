@@ -17,37 +17,5 @@ class CatalogController extends AbstractController
             'title' => 'Catalogue de nos services',
         ]);
     }
-
-    /**
-     * @Route("/catalog/designServices", name="designServices")
-     */
-    public function designServices()
-    {
-        return $this->render('catalog/designServices.html.twig', [
-        'controller_name' => 'CatalogController',
-        'title' => 'Design',
-        ]);
-    }
-
-    /**
-     * @Route("/catalog/developmentServices", name="developmentServices")
-     */
-    public function developmentServices()
-    {
-        return $this->render('catalog/developmentServices.html.twig', [
-        'controller_name' => 'CatalogController',
-        'title' => 'Développement',
-        ]);
-    }
-
-    /**
-     * @Route("/catalog/marketingServices", name="marketingServices")
-     */
-    public function marketingServices()
-    {
-        return $this->render('catalog/marketingServices.html.twig', [
-        'controller_name' => 'CatalogController',
-        'title' => 'Marketing',
-        ]);
-    }
+    
 }

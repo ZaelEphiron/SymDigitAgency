@@ -1,7 +1,97 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Description de l'agence{% endblock %}
+{% block title %}Présentation de l'agence{% endblock %}
 
 {% block body %}
+	
+	<section id="presentation">
+		<div class="jumbotron text-center bg-primary">
+			<h1>Présentation de l'agence Digitalink</h1>
+
+			<p>
+				Basée à Paris, Digitalink profite cependant des avantages du monde digitalisé et travaille avec des membres situés en France et à St Barthélémy, dans les Antilles françaises.<br/>
+				Les outils de collaboration en ligne permettent à l’équipe de travailler sur les mêmes documents et de les partager avec leurs clients pour les étapes de validation de phases de leur projet.
+			</p>
+		</div>
+	</section>
+	
+	<section id="team-presentation">
+		<div class="jumbotron text-center">
+			<h2>Des experts aux spécialités complémentaires</h2>
+			<p>
+				3 pôles de compétences s’organisent au quotidien. 
+				La création graphique est réalisée par Vincent, spécialiste UX, c’est-à-dire l’expérience utilisateur.<br />
+				Le développement web est dirigé par Michael, l’expert Symfony en front-end et back-office.<br />
+				Le webmarketing est sous la responsabilité de Magali, spécialiste de la communication et du marketing sur internet. <br />
+			</p>
+			<hr>
+			<div class="bd-example">
+				<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+					<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+					<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/66020352_641140963053035_8938556919912595456_n.jpg?_nc_cat=100&_nc_oc=AQl4nDNm3BisiB0FQSL1RzK0QYCsz4qYrtlEPI9DAXIq-MpBj013pYhXy6QdLgMAN9s&_nc_ht=scontent-cdg2-1.xx&oh=a711db2b9cfdae817b7b50f043ce7e72&oe=5DDA9033" class="rounded mx-auto d-block w-25" alt="Vincent Desroches">
+						<div class="carousel-caption d-none d-md-block">
+						<h5>Vincent Desroches</h5>
+						<p>Spécialiste du pôle design</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/22310285_142459719828899_1392194444451678314_n.jpg?_nc_cat=108&_nc_oc=AQlrPkHGl7D7nBzw3vqmVz9X5bYo4SdehMzf6g4axWg3Uu2GsdSYIOUQ2wicDB7SxHg&_nc_ht=scontent-cdg2-1.xx&oh=c8fbd2bf09e35bf2dfba55e1b067a3b1&oe=5DE1D026" class="rounded mx-auto d-block w-25" alt="Michaël Chassaing">
+						<div class="carousel-caption d-none d-md-block">
+						<h5>Michaël Chassaing</h5>
+						<p>Spécialiste du pôle développement</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/64991150_322517751993580_3829279561351168000_n.jpg?_nc_cat=109&_nc_oc=AQl1LU2HayoJ94r2TQPLXftYxgc1IuDOX2SjYLUjLgfbZU4FgmCMJItNIhZU2n8YvuU&_nc_ht=scontent-cdg2-1.xx&oh=117a37a630243cb7027734d8b6eb07a1&oe=5DECB8C3" class="rounded mx-auto d-block w-25" alt="Magali Couaillet">
+						<div class="carousel-caption d-none d-md-block">
+						<h5>Magali Couaillet</h5>
+						<p class="text-primary">Spécialiste du pôle marketing</p>
+						</div>
+					</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Précédent</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Suivant</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="our-values">
+		<div class="jumbotron text-center">
+			<h2>Une agence qui vous accompagne</h2>
+
+			<p>
+				Chacun de nos experts est également un chef de projet expérimenté qui a à coeur de satisfaire vos objectifs, vos rêves digitaux.<br />
+				A travers nos différents parcours, nous avons pu remarquer que certains professionnels se sentaient mis à part voire dans des cas exceptionnels, abandonnés par leur webmaster.<br />
+				Notre réaction face à ce type de situation est intransigeante : nous nous engageons à vous accompagner à chaque étape de votre projet, et nous répondrons toujours présent à vos questions.<br />
+			</p>
+		</div>
+	</section>
+
+	<section id="mosaic">
+
+		<div class="row">
+			<div class="col"><img class="w-100" src="img/mosaic1.png" alt="mosaic1"/></div>
+			<div class="col"><img class="w-100" src="img/mosaic2.png" alt="mosaic2"/></div>
+		</div>
+		<div class="row">
+			<div class="col w-50"><img src="img/mosaic3.png" alt="mosaic3"/></div>
+			<div class="col w-50"><img src="img/mosaic4.png" alt="mosaic4"/></div>
+		</div>
+
+	</section>
+
 
 {% endblock %}

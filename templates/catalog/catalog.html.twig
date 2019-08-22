@@ -3,19 +3,93 @@
 {% block title %}Services{% endblock %}
 
 {% block body %}
+	<meta name="description" content="Digitalink peut intervenir à toutes les étapes d’un projet digital. De la création d’un logo, au plan marketing, en passant par la construction de votre site. La liste des services est décrite ici."/>
+	<style>
+		.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+		.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	</style>
 
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<section id="services-presentation">
+		
+			<div class="jumbotron text-center bg-danger">
+				<h1 class="display-3">Un seul intermédiaire, un projet digital complet</h1>
+				<hr class="my-4">
+				<p>
+					Les relations humaines sont primordiales chez Digitalink. Nous sommes tous passionnés par la technologie numérique et par toutes les opportunités de travail qu’offrent un accès à internet.<br />
+					Mais cela doit nous servir et non l’inverse. C’est dans cet objectif que l’accompagnement du client est mis en avant.<br />
+					Quelque soit votre projet de site internet ou de communication web, nous avons la solution.<br />
+				</p>
+			</div>
 
-<div class="example-wrapper">
-    <h1>{{ title }} ✅</h1>
+	</section>
+
+	<section id="catalogs">
 	
-	<ul>
-		<li><a href={{ path('designServices') }}><h2>Design</h2></a></li>
-		<li><a href={{ path('marketingServices') }}><h2>Marketing</h2></li></a>
-		<li><a href={{ path('developmentServices') }}><h2>Développement</h2></li></a>
-	</ul>
-</div>
+		<div class="row">
+			<div class="col">
+				<div class="example-wrapper card">
+					<h3 class="card-header">Marketing</h3>
+					<div class="card-body">
+						<h6 class="card-subtitle text-muted">Services Marketing</h6>
+					</div>
+					<img src="img/marketing.png" alt="Card image">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Audit qualité d'un site internet</li>
+						<li class="list-group-item">Réalisation de campagne de publicité en ligne</li>
+						<li class="list-group-item">Création des personas, les clients types</li>
+						<li class="list-group-item">Élaboration d'un plan de com/marketing</li>
+						<li class="list-group-item">Optimisation du référencement naturel, SEO</li>
+						<li class="list-group-item">Community management</li>
+						<li class="list-group-item">Analyse des données de trafic</li>
+						<li class="list-group-item">Conseils sur la stratégie marketing</li>
+					</ul>
+					<div class="card-footer text-muted">
+						Magali Couaillet
+					</div>
+				</div>
+			</div>	
+			<div class="col">
+				<div class="example-wrapper card">
+					<h3 class="card-header">Design</h3>
+					<div class="card-body">
+						<h6 class="card-subtitle text-muted">Services Design</h6>
+					</div>
+					<img src="img/design.png" alt="Card image">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Création d'une charte graphique avec logo</li>
+						<li class="list-group-item">Modèles de newsletter ou autres documents</li>
+						<li class="list-group-item">Bannières web (réseaux sociaux, blog...)</li>
+						<li class="list-group-item">Création en motion design</li>
+					</ul>
+					<div class="card-footer text-muted">
+						Vincent Desroches
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="example-wrapper card">
+					<h3 class="card-header">Développement</h3>
+					<div class="card-body">
+						<h6 class="card-subtitle text-muted">Services Développement</h6>
+					</div>
+					<img src="img/development.png" alt="Card image">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Développement avec Symfony</li>
+						<li class="list-group-item">Développement CMS avec Wordpress</li>
+						<li class="list-group-item">Service automatisé d'envoi d'e-mail avec Swiftmailer</li>
+						<li class="list-group-item">Intégration d'API</li>
+						<li class="list-group-item">Développement avec un autre langage que PHP</li>
+						<li class="list-group-item">Refonte d'un site web déjà existant</li>
+					</ul>
+					<div class="card-footer text-muted">
+						Michaël Chassaing
+					</div>
+				</div>
+			</div>		
+		</div>
+		<div class="container text-center mb-3">
+			<button type="button" class="btn btn-success"><a class="font-weight-bold text-white" href={{ path('contact') }}>Contactez-nous</a></button>
+		</div>
+	</section>
+
 {% endblock %}

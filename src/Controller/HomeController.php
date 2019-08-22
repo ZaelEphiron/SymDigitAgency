@@ -8,20 +8,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index()
     {
         return $this->render('home/home.html.twig', [
             'controller_name' => 'HomeController',
-            'title' => 'Bienvenue sur le site Digitalink, notre agence digitale !',
+            'title' => 'Digitalink',
             'slogan' => 'Digitalink est le lien entre vous et vos clients',
-            'descriptionMin' => 'Vous êtes sur le site de notre agence, ce site est essentiellement composer du catalogue de nos services, nos références, notre blog ainsi que un formulaire pour nous contacter et demander un devis.',
+            'descriptionMin' => 'Nous vous accompagnons dans vos projets web',
         ]);
     }
 
     /**
-     * @Route("/home/descriptAgency", name="descriptAgency")
+     * @Route("/descriptAgency", name="descriptAgency")
      */
     public function descriptAgency()
     {
@@ -29,4 +29,35 @@ class HomeController extends AbstractController
         'controller_name' => 'HomeController',
         ]);
     }
+
+    /**
+     * @Route("/cgv", name="cgv")
+     */
+    public function cgv()
+    {
+        return $this->render('home/cgv.html.twig', [
+        'controller_name' => 'HomeController',
+        ]);
+    }
+
+    /**
+     * @Route("/pdc", name="pdc")
+     */
+    public function pdc()
+    {
+        return $this->render('home/pdc.html.twig', [
+        'controller_name' => 'HomeController',
+        ]);
+    }
+
+    /**
+     * @Route("/ml", name="ml")
+     */
+    public function mL()
+    {
+        return $this->render('home/ml.html.twig', [
+        'controller_name' => 'HomeController',
+        ]);
+    }
+
 }
