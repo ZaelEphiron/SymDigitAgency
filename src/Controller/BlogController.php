@@ -3,11 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Repository\ArticleRepository;
-use App\Form\ArticleType;
-use App\Entity\Comment;
-use App\Form\CommentType;
 use App\Entity\Category;
+use App\Entity\NewsletterMember;
+
+use App\Repository\ArticleRepository;
+use App\Repository\NewsletterMemberRepository;
+
+use App\Form\ArticleType;
+use App\Form\NewsletterMemberType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,6 +31,31 @@ class BlogController extends AbstractController
             'controller_name' => 'BlogController',
             'articles' => $articles,
             'title' => 'Nous partageons notre expertise et nos idées dans le blog de Digitalink',
+        ]);
+    }
+
+    /**
+     * @Route("/newsletter", name="newsletter")
+     */
+    public function newsletter(Request $request, ObjectManager $manager)
+    {
+        $newsletterMember = new NewsletterMember();
+        
+        $form = $this->createForm(NewsletterMemberType::class, $newsletterMember);
+        
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()){
+            
+            $manager->persist($newsletterMember);
+            $manager->flush();
+            
+            return $this->redirectToRoute('blog');
+        }
+
+        return $this->render('blog/newsletter.html.twig', [
+            'controller_name' => 'BlogController',
+            'formNewsletterMember' => $form->createView(),
         ]);
     }
 

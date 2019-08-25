@@ -18,7 +18,7 @@
     <section class="articles">
       
         <div class="jumbotron text-center">
-            <h2>Gestion des articles</h2>
+            <h2>Gestionnaire des articles</h2>
         </div>
     
         {% for article in articles %}
@@ -36,12 +36,12 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="container text-center">
-                                        <button type="button" class="btn btn-info"><a href={{ path('blog_edit', {'id': article.id}) }}>Modifier l'article</a></button>
+                                        <button type="button" class="btn btn-info"><a class="text-white" href={{ path('blog_edit', {'id': article.id}) }}>Modifier l'article</a></button>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="container text-center">
-                                        <button type="button" class="btn btn-info"><a href={{ path('blog_edit', {'id': article.id}) }}>Supprimer l'article</a></button>
+                                        <button type="button" class="btn btn-info"><a class="text-white" href={{ path('blog_delete', {'id': article.id}) }}>Supprimer l'article</a></button>
                                     </div>
                                 </div>
                             </div>
@@ -56,12 +56,13 @@
                 <p class="mb-0">Vous pouvez en créer un</p>
             </div>
         {% endfor %}
+
     </section>
 
     <section class="contacts">
 
         <div class="jumbotron text-center">
-            <h2>Gestion des devis</h2>
+            <h2>Liste des requêtes reçues</h2>
         </div>
         {% for contact in contacts %}
             <contact>
@@ -69,20 +70,44 @@
                     <div class="jumbotron">
                         <h2 class="text-center">{{ contact.firstname }} {{ contact.lastname }}</h2>
                         <div class="metadata text-center">Reçu le {{ contact.dateOfReceipt | date('d/m/Y') }} à {{ contact.dateOfReceipt | date('H:i') }} avec pour objet {{contact.needs}}</div>
-                            <div class="content text-center">  
-                                {{ contact.message | raw }} 
-                            </div> 
-                            <p class="text-center">
+                            <p><b>
                                 Coordonnées :<br />
                                 Email : {{ contact.email }}<br />
                                 Numéro de téléphone : {{ contact.phone }}<br />
                                 Société : {{ contact.society }}<br />
-                            </p>
+                            </b></p>
+                            <div class="content">  
+                                {{ contact.message | raw }} 
+                            </div> 
                         </div>
                     </div>
                 </div>
             </contact>
         {% endfor %}
+
+    </section>
+
+    <section class="newsletter-members">
+
+        <div class="jumbotron text-center">
+            <h2>Liste des membres inscrits à la newsletter </h2>
+        </div>
+
+        {% for newsletterMember in newsletterMembers %}
+            <newsletterMembers>
+                
+                <div class="example-wrapper">
+                    <div class="jumbotron">
+                        <h2 class="text-center">{{ newsletterMember.firstname }} {{ newsletterMember.lastname }}</h2>
+                        <div class="content text-center">  
+                            Email : {{ newsletterMember.email }}<br />
+                        </div>     
+                    </div>
+                </div>
+
+            </newsletterMembers>
+        {% endfor %}
+    
     </section>
 
 {% endblock %}

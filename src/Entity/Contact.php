@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
  */
@@ -28,12 +29,14 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      * @Assert\Length(min=2, max=100)
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      * @Assert\Length(min=2, max=100)
      */
     private $lastname;
@@ -53,6 +56,7 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      * @Assert\Email()
      */
     private $email;
@@ -91,7 +95,7 @@ class Contact
 
     public function setFirstname(string $firstname): self
     {
-        $this->firstName = $firstname;
+        $this->firstname = $firstname;
 
         return $this;
     }
@@ -103,7 +107,7 @@ class Contact
 
     public function setLastname(string $lastname): self
     {
-        $this->lastName = $lastname;
+        $this->lastname = $lastname;
 
         return $this;
     }
@@ -137,9 +141,9 @@ class Contact
         return $this->email;
     }
 
-    public function setEmail(string $Email): self
+    public function setEmail(string $email): self
     {
-        $this->Email = $Email;
+        $this->email = $email;
 
         return $this;
     }
