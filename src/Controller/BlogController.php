@@ -18,6 +18,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
+use Knp\Component\Pager\PaginatorInterface;
+
 class BlogController extends AbstractController
 {
     /**
