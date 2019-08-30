@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use ReCaptcha\ReCaptcha;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -40,7 +41,7 @@ class ContactController extends AbstractController
             'controller_name' => 'ContactController',
             'formContact' => $form->createView()
         ]);
-    }
+    }   
 
     /**
      * @Route("/validate", name="validate")

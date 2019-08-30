@@ -69,17 +69,18 @@
 			<hr>	
 
 			{{ form_start(formContact) }}
-				
+			<script src="https://www.google.com/recaptcha/api.js" async defer></script>	
 			{{ form_row(formContact.needs, {'label': "Votre besoin*", 'attr': {'placeholder': "Blog, Site ou E-commerce" } }) }}
 			{{ form_row(formContact.firstname, {'label': "Prénom*", 'attr': {'placeholder': "Votre prénom" } }) }}
 			{{ form_row(formContact.lastname, {'label': "Nom*", 'attr': {'placeholder': "Votre nom" } }) }} 
-			{{ form_row(formContact.society, {'label': "Société", 'attr': {'placeholder': "Votre société" } }) }}
-			{{ form_row(formContact.phone, {'label': "Numéro de téléphone", 'attr': {'placeholder': "Votre numéro de téléphone"} }) }}
-			{{ form_row(formContact.email, {'label': "E-mail",'attr': {'placeholder': "Votre adresse e-mail"} }) }}
-			{{ form_row(formContact.message, {'label': "Votre message",'attr': {'placeholder': "Message"} }) }}
-					
+			{{ form_row(formContact.society, {'label': "Société*", 'attr': {'placeholder': "Votre société" } }) }}
+			{{ form_row(formContact.phone, {'label': "Numéro de téléphone*", 'attr': {'placeholder': "Votre numéro de téléphone"} }) }}
+			{{ form_row(formContact.email, {'label': "E-mail*",'attr': {'placeholder': "Votre adresse e-mail"} }) }}
+			{{ form_row(formContact.message, {'label': "Votre message*",'attr': {'placeholder': "Message"} }) }}
+			<div class="g-recaptcha d-flex justify-content-center mb-5" data-sitekey="6LfqhbUUAAAAAE2MiPWX3v0RNdpO5voexv3hlCtM"></div>
+			<p class = "lead text-center"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;">* : champs obligatoires</font></font></p>
 			<button type="submit" class="btn btn-success container text-center">
-					Envoyer votre requête
+				Envoyer votre requête
 			</button>
 			{{ form_end(formContact)}}
 		</div>

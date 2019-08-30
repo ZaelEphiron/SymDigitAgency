@@ -23,15 +23,23 @@ use Knp\Component\Pager\PaginatorInterface;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/blog", name="blog")
+     * @Route("/blog/{page<\d+>?1}", name="blog")
      */
-    public function index(ArticleRepository $repo)
-    {
-        $articles = $repo->findAll();
+    public function index(ArticleRepository $repo, $page)
+    {   
+        $limit = 3;
+
+        $start = $page * $limit - $limit;
+
+        $total = count($repo->findAll());
+
+        $pages = ceil($total / $limit);
 
         return $this->render('blog/blog.html.twig', [
             'controller_name' => 'BlogController',
-            'articles' => $articles,
+            'articles' => $repo->findby([], [], $limit, $start),
+            'pages' => $pages,
+            'page' => $page,
             'title' => 'Nous partageons notre expertise et nos idées dans le blog de Digitalink',
         ]);
     }
@@ -98,7 +106,7 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/delete/{id}", name="blog_delete")
      */
-    public function deleteAction($id, Article $article, ObjectManager $manager){
+    public function deleteAction($id, Article $article, ArticleRepository $repo, ObjectManager $manager){
         
         $article = $manager->getRepository('ArticleRepository')->find($id);
     

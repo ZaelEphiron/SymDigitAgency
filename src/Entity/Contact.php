@@ -80,12 +80,12 @@ class Contact
     {
         return $this->needs;
     }
-
+ 
     public function setNeeds(string $needs): self
     {
-        $this->needs = $needs;
+       $this->needs = $needs;
 
-        return $this;
+       return $this;
     }
 
     public function getFirstname(): ?string
