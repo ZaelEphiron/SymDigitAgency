@@ -15,6 +15,7 @@
         <div class="jumbotron">
             <h1 class="text-center">Création d'un article !</h1>
             <hr>
+            {% if app.user %}
 
             {{ form_start(formArticle) }}
             
@@ -32,6 +33,12 @@
                 {% endif %}
             </button>
             {{ form_end(formArticle)}}
+            {% else %}
+
+            <p> Vous n'êtes pas authentifié </p>    
+
+            {% endif %}
+
         </div>
     </div>
     

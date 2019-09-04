@@ -14,6 +14,7 @@
         </div>
     </section>
     
+    {% if app.user %}
 
     <section class="articles">
       
@@ -32,7 +33,7 @@
                         <h2 class="text-center">{{ article.title }}</h2>
                         <div class="metadata text-center">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{article.category.title}}</div>
                         <div class="content">   
-                            <img class="rounded mx-auto d-block w-25" src="{{ article.image }}" alt="">
+                            <img class="rounded mx-auto d-block w-25" src="{{ article.image }}" alt="image de l'article">
                                 <br>
                                 {{ article.content | raw }}
                                 <br>
@@ -113,5 +114,10 @@
         {% endfor %}
     
     </section>
+    {% else %}
+
+        <p> Vous n'êtes pas authentifié </p>    
+
+    {% endif %}
 
 {% endblock %}
